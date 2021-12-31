@@ -1,0 +1,156 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html {
+    font-size: 16px;
+    line-height: 21px;
+}
+
+
+button, html, input, select, textarea {
+    color: #838383;
+    font-family: 'PT Sans',Arial,Helvetica,sans-serif;
+}
+body, h1, h2, h3, h4, h5, h6, ol, p, ul {
+	-webkit-font-smoothing: antialiased;
+	color:#000;
+	font-family: 'PT Sans',Arial,Helvetica,sans-serif;
+}
+.container {
+    background: #eee;
+}
+.header.site-chrome {
+    padding: 0;
+}
+.header {
+    width: 100%;
+    z-index: 1000;
+    min-height: 50px;
+    clear: both;
+    background-color: #222;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.header .top {
+    clear: both;
+    text-align: center;
+    margin-top: 0;
+}
+.clearfix {
+    zoom: 1;
+}
+.clearfix::before {
+    content: "";
+    display: table;
+}
+
+.head .top{
+	text-align: center;
+}
+.content {
+    padding-top: 10px;
+}
+.content {
+    padding: 0;
+    width: 100%;
+    background-color: #fff;
+    overflow: hidden;
+}
+.wire {
+    padding: 10px;
+    background: #eee;
+    padding-bottom: 30px;
+}
+.wire .card:first-child {
+    border-top: 0;
+}
+
+.card.single:first-child {
+    margin-top: 0;
+}
+.wire .card {
+    border-top: 1px solid #eee;
+    zoom: 1;
+    display: block;
+    padding: 10px;
+    position: relative;
+    text-decoration: none;
+}
+.wire .card .title {
+    padding-top: 5px;
+    padding-right: 5px;
+    font-family: Oswald,Arial,Helvetica,sans-serif;
+    font-size: 18px;
+    line-height: 23px;
+    font-weight: 600;
+    /* margin: 0 0 3px 0; */
+}
+.wire .card .excerpt {
+    padding-top: 10px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    color: #838383;
+    margin: 0;
+    font-size: 16px;
+    line-height: 20px;
+}
+.wire .card .post-meta {
+    margin-top: 10px;
+    padding-top: 10px;
+    clear: both;
+    font-size: 14px;
+    line-height: 12px;
+    margin: 0;
+    vertical-align: middle;
+}
+.footer {
+    clear: both;
+    font-size: 12px;
+}
+.footer .legal {
+    text-align: center;
+    color: #838383;
+}
+.footer .footer-logo img {
+    width: 140px;
+}
+.footer .legal span {
+    margin-top: 10px;
+    display: block;
+    margin-bottom: 1px;
+}
+.page-404 {
+    background-color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+.page-404 h1 {
+    font-family: Oswald,Arial,Helvetica,sans-serif;
+    font-size: 6.85rem;
+    line-height: 7rem;
+}
+.page-404 .body-copy a {
+    color: #dc3d31;
+}
+.page-404 img {
+    width: 100%;
+}
+@media screen and (min-width: 992px){
+.desktop{
+    display:block;
+}
+.content {
+    margin-top: 0;
+}
+.page-404 .body-copy {
+    display: inline-block;
+    width: 400px;
+}
+.page-404 img {
+    width: 400px;
+}
+}

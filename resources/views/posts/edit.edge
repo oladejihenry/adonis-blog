@@ -1,0 +1,167 @@
+@layout('layouts/app')
+
+@section('content') 
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card header">
+					<h4> Edit Post.</h4>
+					{{--  @if (session('status'))
+					<div class="alert alert-success" role="alert">
+						{{ session('status') }}
+					</div>
+					@endif  --}}
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-12">
+          <form action="{{ '/dashboard/update/' + post.id }}" method="POST" enctype="multipart/form-data">
+            {{ csrfField() }}
+	      <div class="modal-body">
+	        
+	          <div class="form-group">
+	            <label for="recipient-name" class="col-form-label"><b>Title:</b></label>
+	            <input type="text" name="title" class="form-control {{ flashMessages.has('errors.title') ? 'is-invalid' : '' }}"
+               id="recipient-name" value="{{ post.title }}">
+	          </div>
+	          <br>
+	          {{--  <div class="form-group">
+	          	<label for="recipient-name" class="col-form-label"><b>Property Category:</b></label>
+	          	<br>
+	          	<select class="form-control" id="apartmenttype" name="apartmenttype[]" id="main-tags" multiple="multiple" style="width:223.438px;">
+  					@foreach($apartmenttype as $apartmenttypes)
+              		<option value="{{$apartmenttypes->id}}">{{$apartmenttypes->name}}</option>
+              		...
+             		@endforeach
+				</select> <b style="color:red;">Note: Please Select Only (One) Property Category.</b>
+	          </div>
+	          <br>
+	          <div class="form-group">
+	          	<label for="recipient-name" class="col-form-label"><b>Location:</b></label>
+	          	<br>
+	          	<select class="form-control" id="location" name="location[]" id="main-tags" multiple="multiple" style="width:223.438px;">
+  					@foreach($location as $locations)
+              		<option value="{{$locations->id}}">{{$locations->city}}</option>
+              		...
+              		@endforeach
+             		
+				</select> <b style="color:red;">Note: Please Select Only (One) Location.</b>
+			  </div>
+			  <br>
+			  <div class="form-group">
+	          	<label for="recipient-name" class="col-form-label"><b>Property Type:</b></label>
+	          	<br>
+	          	<select class="form-control" id="type" name="type[]" id="main-tags" multiple="multiple" style="width:223.438px;">
+  					@foreach($type as $types)
+              		<option value="{{$types->id}}">{{$types->name}}</option>
+              		...
+              		@endforeach
+             		
+				</select> <b style="color:red;">Note: Please Select Only (One) Property Type.</b>
+			  </div>
+			  <br>
+			  <div class="form-row">
+				<div class="form-group col-md-2">
+					<label for="inputCity"><b>Numbers of Beds:</b></label>
+					<input type="text" name="bed_space" class="form-control">
+				</div>
+				<div class="form-group col-md-2">
+					<label for="inputState"><b>Numbers of Toilets:</b></label>
+					<input type="text" name="toilet" class="form-control" >
+				</div>
+				<div class="form-group col-md-2">
+					<label for="inputZip"><b>Square Feet:</b></label>
+					<input type="text" name="sqft" class="form-control">
+				</div>
+				<div class="form-group col-md-2">
+					<label for="inputZip"><b>Numbers of Bathroom:</b></label>
+					<input type="text" name="bathroom" class="form-control">
+				</div>
+        	</div>
+	          <br>
+	          <br>  --}}
+	          <div class="form-group">
+					<label><b>Body:</b></label>
+					<textarea type="text" name="body" value="" class="editor">{{ post.body }}</textarea>
+					   <script>
+              ClassicEditor
+                .create( document.querySelector( '.editor' ) ,{
+                  mediaEmbed: {
+                        // configuration...
+                    },
+                  cloudServices: {
+                        
+                    },
+                    // plugins: [ Image, ImageResize ],
+                    image: {
+                      resizeUnit: '400px',
+                    toolbar: [
+                        'imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight'
+                    ],
+                    styles: [
+                            // This option is equal to a situation where no style is applied.
+                            'full',
+                            // This represents an image aligned to the left.
+                            'alignLeft',
+                            // This represents an image aligned to the right.
+                            'alignRight'
+                        ]
+                },
+                })
+                .then( editor => {
+                  window.editor = editor;
+                } )
+                .catch( err => {
+                  console.error( err.stack );
+                } );
+            </script>
+
+								
+				</div>
+				<br>
+			  <div>
+				  <label><b>Select Featured Image To Add:</b> (Maximum Size: <b>5MB</b>)</label>
+                  <br>
+				  <input type="file" name="featured_image">
+			</div>
+			<br>
+			<br>
+	          <div>
+				  <label><b>Select Image To Add:</b> (Maximum Size: <b>5MB</b>)</label>
+                  <br>
+				  <input type="file" name="first_image">
+                  <br>
+				  <input type="file" name="second_image">
+                  <br>
+				  <input type="file" name="third_image">
+				  <br>
+				  <input type="file" name="fourth_image">
+			</div>
+	      </div>
+	      <div class="modal-footer">
+	        <a href="/dashboard/all-posts" class="btn btn-secondary">Close</a>
+	        <button type="submit" class="btn btn-primary">Update</button>
+	      </div>
+        @if(flashMessages.has('errors.title'))
+        <p class="alert alert-danger" role="alert">
+          {{ flashMessages.get('errors.title') }}
+        </p>
+        @endif
+        @if(flashMessages.has('errors.body'))
+        <p class="alert alert-danger" role="alert">
+          {{ flashMessages.get('errors.body') }}
+        </p>
+        @endif
+      </form>
+
+
+</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+@endsection

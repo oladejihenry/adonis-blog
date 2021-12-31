@@ -1,0 +1,16 @@
+{
+  "assets/app.css": "http://localhost:8080/assets/app.css",
+  "assets/app.js": "http://localhost:8080/assets/app.js",
+  "css/he.css": "http://localhost:8080/css/he.css",
+  "css/main.css": "http://localhost:8080/css/main.css",
+  "css/po.css": "http://localhost:8080/css/po.css",
+  "css/responsive.css": "http://localhost:8080/css/responsive.css",
+  "assets-dash/css/bootstrap.min.css": "http://localhost:8080/assets-dash/css/bootstrap.min.css",
+  "assets-dash/js/core/jquery.min.js": "http://localhost:8080/assets-dash/js/core/jquery.min.js",
+  "assets-dash/js/core/popper.min.js": "http://localhost:8080/assets-dash/js/core/popper.min.js",
+  "assets-dash/js/core/bootstrap.min.js": "http://localhost:8080/assets-dash/js/core/bootstrap.min.js",
+  "assets-dash/js/plugins/perfect-scrollbar.jquery.min.js": "http://localhost:8080/assets-dash/js/plugins/perfect-scrollbar.jquery.min.js",
+  "assets-dash/js/plugins/bootstrap-notify.js": "http://localhost:8080/assets-dash/js/plugins/bootstrap-notify.js",
+  "assets-dash/js/now-ui-dashboard.min.js": "http://localhost:8080/assets-dash/js/now-ui-dashboard.min.js",
+  "assets-dash/css/now-ui-dashboard.css": "http://localhost:8080/assets-dash/css/now-ui-dashboard.css"
+}
