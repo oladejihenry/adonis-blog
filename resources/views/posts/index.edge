@@ -28,13 +28,15 @@
                 <thead class=" text-primary">
                   <th>Title</th>
                   <th>Edit</th>
+                  <th>View</th>
                   <th>Bin</th>
                 </thead>
                 <tbody>
                   @each(post in posts)
                   <tr>
-                    <td><a href="" target="_blank">{{ post.title }}</a></td>
+                    <td>{{ post.title }}</td>
                     <td><a href="/dashboard/edit/{{ post.id }}">Edit</a></td>
+                    <td><a href="/{{ post.slug }}">View</a></td>
                     <td>
                     <form action="/post-delete/" method="post">
                         
