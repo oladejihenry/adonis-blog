@@ -11,14 +11,14 @@
       </div>
   </div>
   <div class="wire">
-
-      <a href="/single-post" class="card single">
+    @each(post in posts)
+      <a href="/{{ post.slug }}" class="card single">
           <span class="post-meta-information">
           Music | 2 Mins Ago
           </span>
           <img class="post-image rectangle" src="https://static.hiphopdx.com/2021/11/GettyImages-1346486864-e1637168521805-250x142.jpg" alt="" />
-          <h3 class="title">JAY-Z States He Has Zero Verzuz Competition While Praising Jadakiss' MVP Performance</h3>
-          <p class="excerpt">Jay-Z says he will smoke anyone on verzuz</p>
+          <h3 class="title">{{ post.title }}</h3>
+          <p class="excerpt">{{ post.body }}</p>
           <br>
           <div class="post-meta">
               <div class="post-meta-section comments">
@@ -26,62 +26,7 @@
               </div>
           </div>
       </a>
-      <a href="/single-post" class="card single">
-          <span class="post-meta-information">
-          Music | 2 Mins Ago
-          </span>
-          <img class="post-image rectangle" src="https://static.hiphopdx.com/2020/10/201018-gucci-mane-getty-250x141.jpg" alt="" />
-          <h3 class="title">JAY-Z States He Has Zero Verzuz Competition While Praising Jadakiss' MVP Performance</h3>
-          <p class="excerpt">Jay-Z says he will smoke anyone on verzuz</p>
-          <br>
-          <div class="post-meta">
-              <div class="post-meta-section comments">
-
-              </div>
-          </div>
-      </a>
-      <a href="/single-post" class="card single">
-          <span class="post-meta-information">
-          Music | 2 Mins Ago
-          </span>
-          <img class="post-image rectangle" src="https://static.hiphopdx.com/2021/10/Westside-Gunn-Twitter-Trolls-250x142.jpg" alt="" />
-          <h3 class="title">JAY-Z States He Has Zero Verzuz Competition While Praising Jadakiss' MVP Performance</h3>
-          <p class="excerpt">Jay-Z says he will smoke anyone on verzuz</p>
-          <br>
-          <div class="post-meta">
-              <div class="post-meta-section comments">
-
-              </div>
-          </div>
-      </a>
-      <a href="/single-post" class="card single">
-          <span class="post-meta-information">
-          Music | 2 Mins Ago
-          </span>
-          <img class="post-image rectangle" src="https://static.hiphopdx.com/2021/09/GettyImages-1339561667-e1631561605362-250x142.jpg" alt="" />
-          <h3 class="title">JAY-Z States He Has Zero Verzuz Competition While Praising Jadakiss' MVP Performance</h3>
-          <p class="excerpt">Jay-Z says he will smoke anyone on verzuz</p>
-          <br>
-          <div class="post-meta">
-              <div class="post-meta-section comments">
-
-              </div>
-          </div>
-      </a>
-      <a href="/single-post" class="card single">
-          <span class="post-meta-information">
-          Music | 2 Mins Ago
-          </span>
-          <img class="post-image rectangle" src="https://static.hiphopdx.com/2021/05/42-dugg-e1622452836244-250x142.png" alt="" />
-          <h3 class="title">JAY-Z States He Has Zero Verzuz Competition While Praising Jadakiss' MVP Performance</h3>
-          <p class="excerpt">Jay-Z says he will smoke anyone on verzuz</p>
-          <br>
-          <div class="post-meta">
-              <div class="post-meta-section comments">
-
-              </div>
-          </div>
-      </a>
+    @endeach
 
   </div>
 

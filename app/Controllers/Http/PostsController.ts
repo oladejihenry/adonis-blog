@@ -65,7 +65,7 @@ export default class PostsController {
       } 
     })
 
-    const post = await Post.find( params.id )
+    const post = await Post.findOrFail( params.id )
     post.title = validatedData.title
     post.body = validatedData.body
     await post.save()

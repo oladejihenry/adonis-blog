@@ -21,6 +21,7 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', 'PagesController.home')
+Route.get('/:slug', 'PagesController.show')
 
 Route.get('/dashboard', 'PagesController.dashboard')
 
