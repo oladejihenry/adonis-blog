@@ -33,21 +33,20 @@
                 </thead>
                 <tbody>
                   @each(post in posts)
-                  <tr>
-                    <td>{{ post.title }}</td>
-                    <td><a href="/dashboard/edit/{{ post.id }}">Edit</a></td>
-                    <td><a href="/{{ post.slug }}">View</a></td>
-                    <td>
-                    <form action="/post-delete/" method="post">
-                        
+                    <tr>
+                      <td>{{ post.title }}</td>
+                      <td><a href="/dashboard/edit/{{ post.id }}">Edit</a></td>
+                      <td><a href="/{{ post.slug }}">View</a></td>
+                      <td>
+                        <form action="/post-delete/" method="post">  
                           <button type="submit" class="btn btn-danger">Bin</button>
-                      </form>
-                  </td>
-                  </tr>
+                        </form>
+                      </td>
+                    </tr>
                   @else
-                  <tr>
-                    <td colspan="3">No posts found.</td>
-                  </tr>
+                    <tr>
+                      <td colspan="3">No posts found.</td>
+                    </tr>
                   @endeach
                 </tbody>
               </table>
