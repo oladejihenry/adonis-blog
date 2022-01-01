@@ -1,5 +1,6 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Post from 'App/Models/Post'
+import Category from 'App/Models/Category'
 
 export default class PagesController {
   public async home ({ view }: HttpContextContract) {
@@ -10,6 +11,11 @@ export default class PagesController {
   public async show ({ params:{slug}, view }: HttpContextContract) {
     const post = await Post.query().where('slug', slug).first()
     return view.render('dashboard/show', { post })
+  }
+
+  public async categoryShow ({ params:{slug}, view }: HttpContextContract) {
+    const category = await Category.query().where('slug', slug).first()
+    return view.render('categories/show', { category })
   }
 
   public async dashboard ({ view }: HttpContextContract) {

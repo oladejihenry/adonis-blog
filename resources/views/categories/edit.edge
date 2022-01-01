@@ -6,19 +6,19 @@
 		<div class="col-md-12">
 			<div class="card">
 				<div class="card header">
-					<h4> Edit Post.</h4>
+					<h4> Edit Category.</h4>
 				</div>
 				<div class="card-body">
 					<div class="row">
 						<div class="col-md-12">
-          <form action="{{ '/dashboard/update/' + post.id }}" method="POST" enctype="multipart/form-data">
+          <form action="{{ '/dashboard/category/update/' + category.id }}" method="POST" enctype="multipart/form-data">
             {{ csrfField() }}
 	      <div class="modal-body">
 	        
 	          <div class="form-group">
-	            <label for="recipient-name" class="col-form-label"><b>Title:</b></label>
-	            <input type="text" name="title" class="form-control {{ flashMessages.has('errors.title') ? 'is-invalid' : '' }}"
-               id="recipient-name" value="{{ post.title }}">
+	            <label for="recipient-name" class="col-form-label"><b>Name:</b></label>
+	            <input type="text" name="name" class="form-control {{ flashMessages.has('errors.name') ? 'is-invalid' : '' }}"
+               id="recipient-name" value="{{ category.name }}">
 	          </div>
 	          <br>
 	          {{--  <div class="form-group">
@@ -78,7 +78,7 @@
 	          <br>  --}}
 	          <div class="form-group">
 					<label><b>Body:</b></label>
-					<textarea type="text" name="body" value="" class="editor">{{ post.body }}</textarea>
+					<textarea type="text" name="body" value="" class="editor">{{ category.description }}</textarea>
 					   <script>
               ClassicEditor
                 .create( document.querySelector( '.editor' ) ,{
@@ -114,38 +114,14 @@
 
 								
 				</div>
-				<br>
-			  <div>
-				  <label><b>Select Featured Image To Add:</b> (Maximum Size: <b>5MB</b>)</label>
-                  <br>
-				  <input type="file" name="featured_image">
-			</div>
-			<br>
-			<br>
-	          <div>
-				  <label><b>Select Image To Add:</b> (Maximum Size: <b>5MB</b>)</label>
-                  <br>
-				  <input type="file" name="first_image">
-                  <br>
-				  <input type="file" name="second_image">
-                  <br>
-				  <input type="file" name="third_image">
-				  <br>
-				  <input type="file" name="fourth_image">
-			</div>
 	      </div>
 	      <div class="modal-footer">
-	        <a href="/dashboard/all-posts" class="btn btn-secondary">Close</a>
+	        <a href="/dashboard/all-categories" class="btn btn-secondary">Close</a>
 	        <button type="submit" class="btn btn-primary">Update</button>
 	      </div>
-        @if(flashMessages.has('errors.title'))
+        @if(flashMessages.has('errors.name'))
         <p class="alert alert-danger" role="alert">
-          {{ flashMessages.get('errors.title') }}
-        </p>
-        @endif
-        @if(flashMessages.has('errors.body'))
-        <p class="alert alert-danger" role="alert">
-          {{ flashMessages.get('errors.body') }}
+          {{ flashMessages.get('errors.name') }}
         </p>
         @endif
       </form>

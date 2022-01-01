@@ -22,6 +22,7 @@ import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', 'PagesController.home')
 Route.get('/:slug', 'PagesController.show')
+Route.get('/category/:slug', 'PagesController.categoryShow')
 
 Route.get('/dashboard', 'PagesController.dashboard')
 
@@ -31,4 +32,12 @@ Route.group(() => {
   Route.post('/store', 'PostsController.store')
   Route.get('/edit/:id', 'PostsController.edit')
   Route.post('/update/:id', 'PostsController.update')
+}).prefix('/dashboard')
+
+Route.group(() => {
+  Route.get('/all-categories', 'CategoriesController.index')
+  Route.get('/category/create', 'CategoriesController.create')
+  Route.post('/category/store', 'CategoriesController.store')
+  Route.get('/category/edit/:id', 'CategoriesController.edit')
+  Route.post('/category/update/:id', 'CategoriesController.update')
 }).prefix('/dashboard')

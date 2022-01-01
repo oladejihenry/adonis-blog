@@ -2,28 +2,22 @@ import { DateTime } from 'luxon'
 import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 import { slugify } from '@ioc:Adonis/Addons/LucidSlugify'
 
-export default class Post extends BaseModel {
+export default class Category extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
   @column()
   @slugify({
     strategy: 'dbIncrement',
-    fields: ['title']
+    fields: ['name']
   })
   public slug: string
 
   @column()
-  public title: string
+  public name: string
 
   @column()
-  public body: string
-
-  @column()
-  public published: boolean
-
-  @column()
-  public excerpt: string
+  public description: string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

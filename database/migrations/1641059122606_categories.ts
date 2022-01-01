@@ -1,21 +1,19 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
-export default class Posts extends BaseSchema {
-  protected tableName = 'posts'
+export default class Categories extends BaseSchema {
+  protected tableName = 'categories'
 
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
-      table.increments('id').primary()
-      table.string('title').notNullable()
+      table.increments('id')
+      table.string('name').notNullable()
       table.string('slug').notNullable()
-      table.text('body').notNullable()
-      table.string('excerpt').notNullable()
-      table.boolean('published').defaultTo(0)
+      table.string('description')
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */
-      table.timestamps(true, true)
+       table.timestamps(true, true)
     })
   }
 

@@ -50,6 +50,49 @@
       </li>
       <li>
         <a data-toggle="collapse" href="#allPages" aria-expanded="false" class="collapsed">
+            <i class="now-ui-icons design_bullet-list-67"></i>
+          <p>
+            Categories
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="allPages">
+          <ul class="nav">
+            <li class="{{ request.url() === '/dashboard/all-categories' ? 'active' : '' }}">
+              <a href="/dashboard/all-categories">
+                <i class="fa fa-tasks"></i>
+                <p> All Categories</p>
+              </a>
+            </li>
+            <li class="{{ request.url() === '/dashboard/category/create' ? 'active' : '' }} dropdown">
+              <a href="/dashboard/category/create">
+                <i class="fa fa-plus"></i>
+                <p> Create Category</p>
+              </a>
+            </li>
+            <li class="dropdown">
+              <a href="/create">
+                <i class="fa fa-plus"></i>
+                <p>Copyright Info</p>
+              </a>
+            </li>
+            <li class="dropdown">
+              <a href="/create">
+                <i class="fa fa-plus"></i>
+                <p>TOS</p>
+              </a>
+            </li>
+            <li class=" dropdown">
+              <a href="/dashboard/properties-bin">
+                <i class="fa fa-trash"></i>
+                <p> Page Bin </p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a data-toggle="collapse" href="#allPages" aria-expanded="false" class="collapsed">
             <i class="now-ui-icons files_single-copy-04"></i>
           <p>
             All Pages

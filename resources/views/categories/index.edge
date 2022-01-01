@@ -1,0 +1,65 @@
+@layout('layouts/app')
+
+@section('content')
+  <div class="row">
+    <div class="col-md-12">
+      @if(flashMessages.has('notification'))
+        <div class="alert alert-success">
+          {{ flashMessages.get('notification') }}
+        </div>
+      @endif
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">All Categories</h4>
+        <a href="/dashboard/category/create" class="btn btn-primary">Create</a>
+        <br><br>
+        <form method="GET" action="" accept-charset="UTF-8">
+          <div class="input-group no-border">
+            <input type="text" name="query" value="" class="form-control" placeholder="Search...">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <i class="now-ui-icons ui-1_zoom-bold"></i>
+              </div>
+            </div>
+          </div>
+        </form>
+        </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>Name</th>
+                  <th>Edit</th>
+                  <th>View</th>
+                  <th>Bin</th>
+                </thead>
+                <tbody>
+                  @each(category in categories)
+                    <tr>
+                      <td>{{ category.name }}</td>
+                      <td><a href="/dashboard/category/edit/{{ category.id }}">Edit</a></td>
+                      <td><a href="/category/{{ category.slug }}">View</a></td>
+                      <td>
+                        <form action="/post-delete/" method="post">  
+                          <button type="submit" class="btn btn-danger">Bin</button>
+                        </form>
+                      </td>
+                    </tr>
+                  @else
+                    <tr>
+                      <td colspan="3">No categories found.</td>
+                    </tr>
+                  @endeach
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+        
+      </ul>
+    </nav>
+    </div> 
+  </div>
+@endsection

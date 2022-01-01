@@ -1,0 +1,36 @@
+@include('partials/head')
+@include('partials/sidebar')
+<div class="content home  with-sidebars">
+  <div class="just-homepage">
+      <div class="section-header item-header desktop">
+          <div class="title">
+              <h2>
+                  <span>{{ category.name }}</span>
+              </h2>
+          </div>
+      </div>
+  </div>
+  <div class="wire">
+    @each(post in posts)
+      <a href="/{{ post.slug }}" class="card single">
+          <span class="post-meta-information">
+          Music | 2 Mins Ago
+          </span>
+          <img class="post-image rectangle" src="https://static.hiphopdx.com/2021/11/GettyImages-1346486864-e1637168521805-250x142.jpg" alt="" />
+          <h3 class="title">{{ post.title }}</h3>
+          <p class="excerpt">{{{ post.body }}}</p>
+          <br>
+          <div class="post-meta">
+              <div class="post-meta-section comments">
+
+              </div>
+          </div>
+      </a>
+    @endeach
+
+  </div>
+
+</div>
+<div class="pagination">
+</div>
+@include('partials/footer')
