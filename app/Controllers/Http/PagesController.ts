@@ -10,12 +10,13 @@ export default class PagesController {
 
   public async show ({ params:{slug}, view }: HttpContextContract) {
     const post = await Post.query().where('slug', slug).first()
-    return view.render('dashboard/show', { post })
+    return view.render('main/show', { post })
   }
 
   public async categoryShow ({ params:{slug}, view }: HttpContextContract) {
-    const category = await Category.query().where('slug', slug).first()
-    return view.render('categories/show', { category })
+    const category = await Category.query().orderBy('id', 'desc').where('slug', slug).first()
+    await category?.load('posts')
+    return view.render('categories/show', { category, posts: category?.posts })
   }
 
   public async dashboard ({ view }: HttpContextContract) {

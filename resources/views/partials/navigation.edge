@@ -32,12 +32,12 @@
 
   <nav class="main-nav-desktop desktop">
       <ul>
-          <li class=""><a href="/">Home</a></li>
-          <li class=""><a href="/category/music">Music</a></li>
-          <li class=""><a href="/category/news">News</a></li>
-          <li class=""><a href="/category/video">Video</a></li>
-          <li class=""><a href="/category/reviews">Reviews</a></li>
-          <li class=""><a href="/category/releases">Releases</a></li>
+          <li class="{{ request.url() === '/' ? 'active' : '' }}"><a href="/">Home</a></li>
+          <li class="{{ request.url() === '/category/music' ? 'active' : '' }}"><a href="/category/music">Music</a></li>
+          <li class="{{ request.url() === '/category/news' ? 'active' : '' }}"><a href="/category/news">News</a></li>
+          <li class="{{ request.url() === '/category/video' ? 'active' : '' }}"><a href="/category/video">Video</a></li>
+          <li class="{{ request.url() === '/category/reviews' ? 'active' : '' }}"><a href="/category/reviews">Reviews</a></li>
+          <li class="{{ request.url() === '/category/releases' ? 'active' : '' }}"><a href="/category/releases">Releases</a></li>
       </ul>
   </nav>
   <nav class="secondary-nav mobile">

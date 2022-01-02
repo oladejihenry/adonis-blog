@@ -65,4 +65,13 @@ export default class CategoriesController {
 
     return response.redirect('/dashboard/all-categories')
   }
+
+  public async delete ({ params, response, session }: HttpContextContract) {
+    const category = await Category.findOrFail( params.id )
+    await category.delete()
+  
+    session.flash({'notification': 'Category deleted successfully'})
+
+    return response.redirect('back')
+  }
 }

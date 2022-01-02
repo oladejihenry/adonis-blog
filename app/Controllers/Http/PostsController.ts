@@ -1,5 +1,6 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Post from 'App/Models/Post'
+import Category from 'App/Models/Category'
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 export default class PostsController {
@@ -9,7 +10,8 @@ export default class PostsController {
   }
 
   public async create ({ view }: HttpContextContract) {
-    return view.render('posts/create')
+    const categories = await Category.all()
+    return view.render('posts/create', { categories })
   }
 
   public async store ({ request, response, session }: HttpContextContract) {
@@ -18,6 +20,9 @@ export default class PostsController {
         rules.maxLength(255)
       ]),
       body: schema.string({ trim: true }, [
+        // rules.maxLength(255)
+      ]),
+      excerpt: schema.string({ trim: true }, [
         // rules.maxLength(255)
       ])
     })
@@ -28,13 +33,16 @@ export default class PostsController {
         'title.required': 'Post title is required',
         'title.maxLength': 'Post title must be less than 255 characters',
         'body.required': 'Post body is required',
+        'excerpt.required': 'Post excerpt is required',
       } 
     })
 
-    await Post.create({
+    const post = await Post.create({
       title: validatedData.title,
       body: validatedData.body,
+      excerpt: request.input('excerpt'),
     })
+    await post.related('categories').attach(request.input('category'))
 
     session.flash({'notification': 'Post created successfully'})
 
@@ -73,5 +81,14 @@ export default class PostsController {
     session.flash({'notification': 'Post updated successfully'})
 
     return response.redirect('/dashboard/all-posts')
+  }
+
+  public async delete ({ params, response, session }: HttpContextContract) {
+    const post = await Post.findOrFail( params.id )
+    await post.delete()
+
+    session.flash({'notification': 'Post deleted successfully'})
+
+    return response.redirect('back')
   }
 }

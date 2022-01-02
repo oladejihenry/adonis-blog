@@ -11,6 +11,7 @@
     <div class="card">
       <div class="card-header">
         <h4 class="card-title">All Posts</h4>
+        <a href="{{ route('create.post') }}" class="btn btn-primary">Create</a>
         <form method="GET" action="" accept-charset="UTF-8">
           <div class="input-group no-border">
             <input type="text" name="query" value="" class="form-control" placeholder="Search...">
@@ -38,7 +39,8 @@
                       <td><a href="/dashboard/edit/{{ post.id }}">Edit</a></td>
                       <td><a href="/{{ post.slug }}">View</a></td>
                       <td>
-                        <form action="/post-delete/" method="post">  
+                        <form action="{{ `/dashboard/delete/${post.id}?_method=DELETE` }}" method="post">
+                          {{ csrfField() }}  
                           <button type="submit" class="btn btn-danger">Bin</button>
                         </form>
                       </td>

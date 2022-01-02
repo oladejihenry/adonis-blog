@@ -28,13 +28,13 @@
         <div class="collapse" id="laravelExamples">
           <ul class="nav">
             <li class="{{ request.url() === '/dashboard/all-posts' ? 'active' : '' }}">
-              <a href="/dashboard/all-posts">
+              <a href="{{ route('all-posts') }}">
                 <i class="fa fa-tasks"></i>
                 <p> All Posts </p>
               </a>
             </li>
             <li class="{{ request.url() === '/dashboard/create' ? 'active' : '' }} dropdown">
-              <a href="/dashboard/create">
+              <a href="{{ route('create.post') }}">
                 <i class="fa fa-plus"></i>
                 <p> Create Post </p>
               </a>
@@ -49,23 +49,23 @@
         </div>
       </li>
       <li>
-        <a data-toggle="collapse" href="#allPages" aria-expanded="false" class="collapsed">
+        <a data-toggle="collapse" href="#allCategories" aria-expanded="false" class="collapsed">
             <i class="now-ui-icons design_bullet-list-67"></i>
           <p>
             Categories
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse" id="allPages">
+        <div class="collapse" id="allCategories">
           <ul class="nav">
             <li class="{{ request.url() === '/dashboard/all-categories' ? 'active' : '' }}">
-              <a href="/dashboard/all-categories">
+              <a href="{{ route('all-categories') }}">
                 <i class="fa fa-tasks"></i>
                 <p> All Categories</p>
               </a>
             </li>
             <li class="{{ request.url() === '/dashboard/category/create' ? 'active' : '' }} dropdown">
-              <a href="/dashboard/category/create">
+              <a href="{{ route('create.category') }}">
                 <i class="fa fa-plus"></i>
                 <p> Create Category</p>
               </a>

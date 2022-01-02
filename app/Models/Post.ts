@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, manyToMany, ManyToMany } from '@ioc:Adonis/Lucid/Orm'
 import { slugify } from '@ioc:Adonis/Addons/LucidSlugify'
+import Category from './Category'
 
 export default class Post extends BaseModel {
   @column({ isPrimary: true })
@@ -24,6 +25,12 @@ export default class Post extends BaseModel {
 
   @column()
   public excerpt: string
+
+  @manyToMany(() => Category,{
+    pivotTable: 'category_posts',
+  })
+  public categories: ManyToMany<typeof Category>
+  
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

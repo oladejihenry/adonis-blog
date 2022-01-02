@@ -11,7 +11,7 @@
     <div class="card">
       <div class="card-header">
         <h4 class="card-title">All Categories</h4>
-        <a href="/dashboard/category/create" class="btn btn-primary">Create</a>
+        <a href="{{ route('create.category') }}" class="btn btn-primary">Create</a>
         <br><br>
         <form method="GET" action="" accept-charset="UTF-8">
           <div class="input-group no-border">
@@ -40,7 +40,8 @@
                       <td><a href="/dashboard/category/edit/{{ category.id }}">Edit</a></td>
                       <td><a href="/category/{{ category.slug }}">View</a></td>
                       <td>
-                        <form action="/post-delete/" method="post">  
+                        <form action="{{`/dashboard/category/delete/${category.id}?_method=DELETE`}}" method="post">  
+                          {{ csrfField() }}
                           <button type="submit" class="btn btn-danger">Bin</button>
                         </form>
                       </td>

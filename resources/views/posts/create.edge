@@ -21,18 +21,20 @@
                id="recipient-name" value="{{ flashMessages.get('title') || '' }}">
 	          </div>
 	          <br>
-	          {{--  <div class="form-group">
-	          	<label for="recipient-name" class="col-form-label"><b>Property Category:</b></label>
+	           <div class="form-group">
+	          	<label for="recipient-name" class="col-form-label"><b>Post Category:</b></label>
 	          	<br>
-	          	<select class="form-control" id="apartmenttype" name="apartmenttype[]" id="main-tags" multiple="multiple" style="width:223.438px;">
-  					@foreach($apartmenttype as $apartmenttypes)
-              		<option value="{{$apartmenttypes->id}}">{{$apartmenttypes->name}}</option>
+	          	<select class="form-control" id="category" name="category[]" aria-label="Default select example" style="width:223.438px;">
+								<option selected>Select Category</option>
+								@each(category in categories)
+              		<option value="{{category.id}}">{{category.name}}</option>
               		...
-             		@endforeach
-				</select> <b style="color:red;">Note: Please Select Only (One) Property Category.</b>
+             	
+								 @endeach
+						</select> <b style="color:red;">Note: Please Select Only (One) Property Category.</b>
 	          </div>
 	          <br>
-	          <div class="form-group">
+	          {{-- <div class="form-group">
 	          	<label for="recipient-name" class="col-form-label"><b>Location:</b></label>
 	          	<br>
 	          	<select class="form-control" id="location" name="location[]" id="main-tags" multiple="multiple" style="width:223.438px;">
@@ -76,9 +78,9 @@
         	</div>
 	          <br>
 	          <br>  --}}
-	          <div class="form-group">
-					<label><b>Body:</b></label>
-					<textarea type="text" name="body" value="" class="editor">{{ flashMessages.get('body') || '' }}</textarea>
+	        <div class="form-group">
+						<label><b>Body:</b></label>
+						<textarea type="text" name="body" value="" class="editor">{{ flashMessages.get('body') || '' }}</textarea>
 					   <script>
               ClassicEditor
                 .create( document.querySelector( '.editor' ) ,{
@@ -110,10 +112,13 @@
                 .catch( err => {
                   console.error( err.stack );
                 } );
-            </script>
-
-								
-				</div>
+            </script>			
+					</div>
+					<br> <br>
+					<div class="form-group">
+						<label><b>Excerpt:</b></label>
+						<textarea type="text" name="excerpt" class="form-control {{ flashMessages.has('errors.excerpt') ? 'is-invalid' : '' }}">{{ flashMessages.get('excerpt') || '' }}</textarea>
+					</div>
 				<br>
 			  <div>
 				  <label><b>Select Featured Image To Add:</b> (Maximum Size: <b>5MB</b>)</label>
@@ -148,6 +153,11 @@
           {{ flashMessages.get('errors.body') }}
         </p>
         @endif
+				@if(flashMessages.has('errors.excerpt'))
+        <p class="alert alert-danger" role="alert">
+          {{ flashMessages.get('errors.excerpt') }}
+        </p>
+        @endif
       </form>
 
 
@@ -159,12 +169,5 @@
 		</div>
 	</div>
 </div>
-{{--  <script>
-  $(document).ready(function() {
-    $('#apartmenttype').select2();
-    $('#location').select2();
-	$('#type').select2();
-  });
-</script>  --}}
 
 @endsection
