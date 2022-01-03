@@ -76,6 +76,7 @@ export default class PostsController {
     const post = await Post.findOrFail( params.id )
     post.title = validatedData.title
     post.body = validatedData.body
+    post.excerpt  = request.input('excerpt')
     await post.save()
   
     session.flash({'notification': 'Post updated successfully'})

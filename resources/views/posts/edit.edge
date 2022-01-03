@@ -115,6 +115,10 @@
 								
 				</div>
 				<br>
+				<div class="form-group">
+					<label><b>Excerpt:</b></label>
+					<textarea type="text" name="excerpt" class="form-control {{ flashMessages.has('errors.excerpt') ? 'is-invalid' : '' }}">{{ post.excerpt }}</textarea>
+				</div>
 			  <div>
 				  <label><b>Select Featured Image To Add:</b> (Maximum Size: <b>5MB</b>)</label>
                   <br>
