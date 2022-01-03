@@ -23,7 +23,7 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get('/', 'PagesController.home')
 
 
-Route.get('/dashboard', 'PagesController.dashboard').middleware('auth')
+Route.get('/dashboard', 'PagesController.dashboard').as('dashboard').middleware('auth')
 
 Route.group(() => {
   Route.get('/all-posts', 'PostsController.index').as('all-posts')

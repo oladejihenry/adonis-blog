@@ -32,9 +32,13 @@
   @if(auth.isLoggedIn)
     <div class="top clearfix">
         <div class="logo">
-            <a href="/dashboard">{{ auth.user.username }}'s Dashboard</a>
+            <a href="{{ route('dashboard') }}">{{ auth.user.username }}'s Dashboard</a>
             |
-            <a href="">Logout</a>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">Logout</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrfField() }}
+            </form>
         </div>
     </div>
   @endif
