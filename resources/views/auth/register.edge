@@ -1,4 +1,4 @@
-!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -7,7 +7,7 @@
     <link rel="icon"  type="image/png" href="./images/favicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-     <link rel = "stylesheet" href="/css/auth.css>
+     <link rel = "stylesheet" href="./css/auth.css">
      <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
      <script src="./js/index.js"></script>
@@ -21,16 +21,16 @@
         
             <div class="form">
               <form method="POST" action="{{ route('register') }}" class="register-form">
-                @csrf
+                {{ csrfField() }}
                 <div>
-                <input type="text" class="@error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" placeholder="Username" required autocomplete="username" autofocus>
-                @error('username')
+                <input type="text" class="{{ flashMessages.has('errors.username') ? 'is-invalid' : '' }}" name="username" value="{{ flashMessages.get('username') || '' }}" placeholder="Username" required autocomplete="username" autofocus>
+                @if(flashMessages.has('errors.username'))
                     <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
+                        <strong>{{ flashMessages.get('errors.username') }}</strong>
                     </span>
-                @enderror
+                @endif
                 </div>
-                <input type="email" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email Address"/>
+                <input type="email" class="{{ flashMessages.has('errors.email') ? 'is-invalid' : '' }}" name="email" value="{{ flashMessages.get('email') || '' }}" required autocomplete="email" placeholder="Email Address"/>
                 <input type="password" name="password" required autocomplete="new-password" placeholder="Password"/>
                 <input type="password" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password"/>
                 <button>Register</button>
