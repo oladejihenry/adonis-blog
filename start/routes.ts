@@ -43,5 +43,8 @@ Route.group(() => {
   Route.delete('/category/delete/:id', 'CategoriesController.delete').as('delete.category')
 }).prefix('/dashboard')
 
+Route.get('/register', 'AuthController.showRegister')
+Route.post('/register', 'AuthController.register').as('register')
+
 Route.get('/:slug', 'PagesController.show')
 Route.get('/category/:slug', 'PagesController.categoryShow')

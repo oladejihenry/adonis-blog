@@ -14,8 +14,7 @@ export default class PagesController {
   }
 
   public async categoryShow ({ params:{slug}, view }: HttpContextContract) {
-    const category = await Category.query().orderBy('id', 'desc').where('slug', slug).first()
-    await category?.load('posts')
+    const category = await Category.query().orderBy('id', 'desc').where('slug', slug).preload('posts').first()
     return view.render('categories/show', { category, posts: category?.posts })
   }
 

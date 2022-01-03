@@ -23,13 +23,21 @@
       </div>
   </div>
 
-  <form class="search-box show" method="get" action=">">
+  <form class="search-box show" method="get" action="">
       <input class="search-field" type="text" name="s" value="" placeholder="Search">
       <button class="search-submit" type="submit">
           <i class="fa fa-search"></i>
       </button>
   </form>
-
+  @if(auth.isLoggedIn)
+    <div class="top clearfix">
+        <div class="logo">
+            <a href="/dashboard">{{ auth.user.username }}'s Dashboard</a>
+            |
+            <a href="">Logout</a>
+        </div>
+    </div>
+  @endif
   <nav class="main-nav-desktop desktop">
       <ul>
           <li class="{{ request.url() === '/' ? 'active' : '' }}"><a href="/">Home</a></li>
